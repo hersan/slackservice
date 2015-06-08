@@ -1,11 +1,11 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: hheredia
- * Date: 3/06/15
- * Time: 03:22 PM
+ * Home Controller
+ *
+ * @author      Herminio Heredia <herminio.heredia@hotmail.com>
+ * @link        http://thinkingoo.wordpress.com/
+ * @version     1.0.0
  */
-
 namespace App\Http\Controllers;
 
 use App\Services\SlackInviteService;
@@ -17,7 +17,7 @@ class HomeController extends Controller{
     /**
      * @var UserStatisticsService
      */
-    private $slackStatics;
+    private $slackStatistics;
 
     /**
      * @var SlackInviteService
@@ -25,12 +25,12 @@ class HomeController extends Controller{
     private $inviteService;
 
     /**
-     * @param UserStatisticsService $slackStatics
-     * @param SlackInviteService $inviteService
+     * @param UserStatisticsService $slackStatistics
+     * @internal param UserStatisticsService $slackStatics
      */
-    public function __construct(UserStatisticsService $slackStatics, SlackInviteService $inviteService)
+    public function __construct(UserStatisticsService $slackStatistics, SlackInviteService $inviteService)
     {
-        $this->slackStatics = $slackStatics;
+        $this->$slackStatistics = $slackStatistics;
         $this->inviteService = $inviteService;
     }
 
@@ -39,7 +39,7 @@ class HomeController extends Controller{
      */
     public function getIndex()
     {
-        $stats = $this->slackStatics->usersStats();
+        $stats = $this->slackStatistics->usersStats();
 
         return view('slack.index', ['stats' => $stats]);
     }

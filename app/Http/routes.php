@@ -11,11 +11,6 @@
 |
 */
 
-/*$app->get('/', function() use ($app) {
-    return view('slack.index');
-});*/
-
-
 $app->get('/',[
     'uses' => '\App\Http\Controllers\HomeController@getIndex',
     'as' => 'home'
