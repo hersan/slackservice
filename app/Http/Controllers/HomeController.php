@@ -26,7 +26,7 @@ class HomeController extends Controller{
 
     /**
      * @param UserStatisticsService $slackStatistics
-     * @internal param UserStatisticsService $slackStatics
+     * @param SlackInviteService $inviteService
      */
     public function __construct(UserStatisticsService $slackStatistics, SlackInviteService $inviteService)
     {
@@ -47,7 +47,7 @@ class HomeController extends Controller{
     /**
      * @param Request $request
      *
-     * @return $this
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function postInvite(Request $request)
     {
