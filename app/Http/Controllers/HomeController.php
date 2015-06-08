@@ -30,7 +30,7 @@ class HomeController extends Controller{
      */
     public function __construct(UserStatisticsService $slackStatistics, SlackInviteService $inviteService)
     {
-        $this->$slackStatistics = $slackStatistics;
+        $this->slackStatistics = $slackStatistics;
         $this->inviteService = $inviteService;
     }
 
